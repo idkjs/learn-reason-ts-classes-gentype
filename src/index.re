@@ -5,8 +5,8 @@ module AbsoluteValue = {
   [@genType.import ("./MyMath", "AbsoluteValue")]
   type t = {. 
     "getAbs": (. unit) => int,
-   "getProp": (. unit) => int,
-   [@bs.set] "prop":int
+    "getProp": (. unit) => int,
+    [@bs.set] "prop":int
   };
 
   /* This is untyped */
