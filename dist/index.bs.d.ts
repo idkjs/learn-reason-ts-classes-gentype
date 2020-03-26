@@ -13,6 +13,7 @@ export var create: any;
 export var value: any;
 export var setVal: number;
 export var propVal: number;
+export var setProp: number;
 export var propAbs: any;
 declare function getAbs(x: any): any;
-declare function setProp(x: any, $$int: any): number;
+declare function setProp(x: any, n: any): number;

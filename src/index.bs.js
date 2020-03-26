@@ -11,8 +11,8 @@ function getAbs(x) {
   return x.getAbs();
 }
 
-function setProp(x, $$int) {
-  x.prop = $$int;
+function setProp(x, n) {
+  x.prop = n;
   return /* () */0;
 }
 
@@ -62,6 +62,12 @@ console.log("propVal", propVal$1);
 
 console.log("propAbs", propAbs);
 
+console.log("setProp", value);
+
+var setProp$1 = (value.prop = 3, /* () */0);
+
+console.log("setProp", value);
+
 var propAbs$1 = value.getAbs();
 
 console.log("propAbs", propAbs$1);
@@ -83,5 +89,6 @@ exports.create = create;
 exports.value = value;
 exports.setVal = setVal;
 exports.propVal = propVal$1;
+exports.setProp = setProp$1;
 exports.propAbs = propAbs$1;
 /*  Not a pure module */
