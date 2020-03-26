@@ -1,14 +1,6 @@
 let default = ImportJsValue.default;
 Js.log2("default: ", default);
 
-
-// [@genType.import ("./MyMath", "AbsoluteValue")]
-// type t;
-// [@genType.import "./MyMath"]
-// external create: unit => t = "create";
-// [@genType]
-// let value:t = create();
-// Js.log(value)
 module AbsoluteValue = {
   [@genType.import ("./MyMath", "AbsoluteValue")]
   type t = {. 
@@ -40,9 +32,9 @@ let useSetProp = (x: AbsoluteValue.t,n:int) =>
 
 [@genType.import "./MyMath"]
 external create: (. unit) => AbsoluteValue.t = "create";
-[@genType]
+// [@genType]
 let value:AbsoluteValue.t = create(.);
-Js.log2("new AbsoluteValue should be { }",value)
+Js.log2("new AbsoluteValue should be {}",value)
 Js.log2("new AbsoluteValue should have OBJECT type",Js.Json.test(value,Object))
 // get the prop value using the class method
 let propVal = useGetProp(value);
@@ -64,3 +56,4 @@ Js.log2("propAbs",propAbs)
 Js.log(value)
 
 Js.log(propVal === 2);
+

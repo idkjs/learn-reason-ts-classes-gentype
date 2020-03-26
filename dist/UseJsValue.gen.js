@@ -2,7 +2,8 @@
 /* TypeScript file generated from UseJsValue.re by genType. */
 /* eslint-disable import/first */
 Object.defineProperty(exports, "__esModule", { value: true });
-// tslint:disable-next-line:no-var-requires
-const UseJsValueBS = require('./UseJsValue.bs');
-exports.useGetProp = UseJsValueBS.useGetProp;
-exports.useTypeImportedInOtherModule = UseJsValueBS.useTypeImportedInOtherModule;
+const MyMath_1 = require("./MyMath");
+// In case of type error, check the type of 'create' in 'UseJsValue.re' and './MyMath'.
+exports.createTypeChecked = MyMath_1.create;
+// Export 'create' early to allow circular import from the '.bs.js' file.
+exports.create = exports.createTypeChecked;

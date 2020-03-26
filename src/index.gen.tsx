@@ -10,12 +10,7 @@ export const createTypeChecked: () => AbsoluteValue_t = createNotChecked;
 // Export 'create' early to allow circular import from the '.bs.js' file.
 export const create: unknown = createTypeChecked as () => AbsoluteValue_t;
 
-// tslint:disable-next-line:no-var-requires
-const indexBS = require('./index.bs');
-
 import {AbsoluteValue as $$AbsoluteValue_t} from './MyMath';
 
 // tslint:disable-next-line:interface-over-type-literal
 export type AbsoluteValue_t = $$AbsoluteValue_t;
-
-export const value: AbsoluteValue_t = indexBS.value;

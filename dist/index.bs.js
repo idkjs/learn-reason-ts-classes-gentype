@@ -27,7 +27,7 @@ function useSetProp(x, n) {
 }
 var create = IndexGen.create;
 var value = create();
-console.log("new AbsoluteValue should be { }", value);
+console.log("new AbsoluteValue should be {}", value);
 console.log("new AbsoluteValue should have OBJECT type", Js_json.test(value, /* Object */ 2));
 var propVal = value.getProp() + 1 | 0;
 console.log("propVal: useGetProp(value)", propVal);

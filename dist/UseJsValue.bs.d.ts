@@ -1,6 +1,6 @@
-export function useGetProp(x: any): number;
-export function useTypeImportedInOtherModule(x: any): any;
-export var $$default: any;
-declare var _default: any;
-export default _default;
-export var __esModule: boolean;
+export var create: any;
+export var value: any;
+export var setVal: number;
+export var propVal: number;
+export var setProp: number;
+export var propAbs: any;

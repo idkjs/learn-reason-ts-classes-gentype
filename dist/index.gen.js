@@ -7,6 +7,3 @@ const MyMath_1 = require("./MyMath");
 exports.createTypeChecked = MyMath_1.create;
 // Export 'create' early to allow circular import from the '.bs.js' file.
 exports.create = exports.createTypeChecked;
-// tslint:disable-next-line:no-var-requires
-const indexBS = require('./index.bs');
-exports.value = indexBS.value;
