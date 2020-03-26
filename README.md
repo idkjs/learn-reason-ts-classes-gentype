@@ -36,5 +36,6 @@ The `Reason` code is in [`index.re`](./src/index.re)
 
 ## Acknowledgments
 
-The `typescript` setup comes from <https://github.com/ArturWierzbicki/learning-reasonml>
-The guidance on calling the class came from @cristianoc on this [issue](https://github.com/cristianoc/genType/issues/400#issuecomment-604508110)
+The `typescript` setup comes from <https://github.com/ArturWierzbicki/learning-reasonml>.
+
+The guidance on calling the class came from @cristianoc on this [issue](https://github.com/cristianoc/genType/issues/400#issuecomment-604508110).
