@@ -14,3 +14,19 @@ jq '.scripts += {compile: "tsc"}' package.json | sponge package.json
 npm run compile -- --init
 ```
 
+This is an attempt to understand binding to a `typescript` class using the `AbsoluteValue` example in the [gentype repo](https://github.com/cristianoc/genType/blob/master/examples/typescript-react-example/src/MyMath.ts)
+
+```ts
+export class AbsoluteValue {
+  public prop!: number;
+  public getProp(): number {
+    return this.prop;
+  }
+  public getAbs(): number {
+    return this.prop < 0 ? -this.prop : this.prop;
+  }
+}
+```
+
+The `Reason` code is in [`index.re`](./src/index.re)
+

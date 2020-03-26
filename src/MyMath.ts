@@ -19,7 +19,6 @@ export class AbsoluteValue {
   public getAbs(): number {
     return this.prop < 0 ? -this.prop : this.prop;
   }
-
 }
 export const create = function() { return new AbsoluteValue(); }
 export type stringFunction = (_: string) => string;
