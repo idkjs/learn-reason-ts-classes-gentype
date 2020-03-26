@@ -17,8 +17,9 @@ module AbsoluteValue = {
     let getAbs = x##getAbs;
     getAbs(.);
   };
+  // this is not handling negative numbers
   let setProp = (x: t,n:int) => {
-    let prop = x##prop #= n;
+    let prop = n >= 0 ? x##prop #= n : x##prop #= (-n);
     prop;
   };
 
@@ -41,8 +42,8 @@ let propVal = useGetProp(value);
 Js.log2("propVal: useGetProp(value)",propVal)
 let setVal = value->useSetProp(1);
 Js.log2("setVal:",setVal)
-value##prop #= 1;
-Js.log2("value##prop",value##prop)
+let setProp = value->useSetProp(-3)
+Js.log2("setProp -3",setProp)
 let propVal = useGetProp(value);
 let propAbs = useGetAbs(value);
 Js.log2("propVal",propVal)

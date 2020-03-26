@@ -8,8 +8,14 @@ function getAbs(x) {
     return x.getAbs();
 }
 function setProp(x, n) {
-    x.prop = n;
-    return /* () */ 0;
+    if (n >= 0) {
+        x.prop = n;
+        return /* () */ 0;
+    }
+    else {
+        x.prop = -n | 0;
+        return /* () */ 0;
+    }
 }
 var AbsoluteValue = {
     getAbs: getAbs,
@@ -21,26 +27,23 @@ function useGetProp(x) {
 function useGetAbs(x) {
     return x.getAbs();
 }
-function useSetProp(x, n) {
-    x.prop = n;
-    return /* () */ 0;
-}
+var useSetProp = setProp;
 var create = IndexGen.create;
 var value = create();
 console.log("new AbsoluteValue should be {}", value);
 console.log("new AbsoluteValue should have OBJECT type", Js_json.test(value, /* Object */ 2));
 var propVal = value.getProp() + 1 | 0;
 console.log("propVal: useGetProp(value)", propVal);
-var setVal = (value.prop = 1, /* () */ 0);
+var setVal = setProp(value, 1);
 console.log("setVal:", setVal);
-value.prop = 1;
-console.log("value##prop", value.prop);
+var setProp$1 = setProp(value, -3);
+console.log("setProp -3", setProp$1);
 var propVal$1 = value.getProp() + 1 | 0;
 var propAbs = value.getAbs();
 console.log("propVal", propVal$1);
 console.log("propAbs", propAbs);
 console.log("setProp", value);
-var setProp$1 = (value.prop = 3, /* () */ 0);
+var setProp$2 = setProp(value, 3);
 console.log("setProp", value);
 var propAbs$1 = value.getAbs();
 console.log("propAbs", propAbs$1);
@@ -58,5 +61,5 @@ exports.create = create;
 exports.value = value;
 exports.setVal = setVal;
 exports.propVal = propVal$1;
-exports.setProp = setProp$1;
+exports.setProp = setProp$2;
 exports.propAbs = propAbs$1;
