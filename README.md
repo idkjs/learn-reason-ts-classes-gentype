@@ -30,3 +30,4 @@ export class AbsoluteValue {
 
 The `Reason` code is in [`index.re`](./src/index.re)
 
+The `typescript` setup comes from <https://github.com/ArturWierzbicki/learning-reasonml>
