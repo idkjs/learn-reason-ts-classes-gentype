@@ -30,9 +30,14 @@ export class AbsoluteValue {
 
 The `Reason` code is in [`index.re`](./src/index.re)
 
+`AbsoluteValue3` module is compiling but not working as expected. All `AbsoluteValue*` modules are doing the same thing using different syntax to bind to a `typescript` class.
+
 ## Running
 
 `yarn install` the `yarn run one-click-dev`.
+
+Or to get output in one terminal and `re/ts` in another.
+`yarn watch-run` and in other `yarn watch-build`.
 
 ## Acknowledgments
 

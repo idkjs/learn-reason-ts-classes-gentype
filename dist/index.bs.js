@@ -2,24 +2,73 @@
 'use strict';
 var Js_json = require("bs-platform/lib/js/js_json.js");
 var IndexGen = require("./index.gen");
+var AbsoluteValue = require("modules/absoluteValue");
 var ImportJsValue$ReasonTsClassesGentype = require("./ImportJsValue.bs.js");
 console.log("default: ", ImportJsValue$ReasonTsClassesGentype.$$default);
 function getAbs(x) {
     return x.getAbs();
 }
-function setProp(x, n) {
-    if (n >= 0) {
-        x.prop = n;
-        return /* () */ 0;
-    }
-    else {
-        x.prop = -n | 0;
-        return /* () */ 0;
-    }
+function getProp(x) {
+    return x.getProp();
 }
-var AbsoluteValue = {
+function setProp(x, n) {
+    console.log("new prop", n);
+    console.log("new prop", x);
+    console.log("new prop x##prop", x.prop);
+    var prop = n >= 0 ? (x.prop = n, /* () */ 0) : (x.prop = -n | 0, /* () */ 0);
+    console.log("new prop", prop);
+    return prop;
+}
+var AbsoluteValue3 = {
     getAbs: getAbs,
+    getProp: getProp,
     setProp: setProp
+};
+var value = new AbsoluteValue.AbsoluteValue();
+console.log("--------------------------");
+console.log("ABSOLUTE VALUE 3 BEGIN");
+console.log("--------------------------");
+console.log("new AbsoluteValue3 should be {}", value);
+console.log("new AbsoluteValue3 should have OBJECT type", Js_json.test(value, /* Object */ 2));
+var setVal = setProp(value, 3);
+console.log("setVal3 == 3:", setVal);
+var propVal = value.getProp() + 1 | 0;
+console.log("propVal3: == 1", propVal);
+var useUseProp2 = setProp(value, -19);
+console.log("useUseProp2 -19", useUseProp2);
+var propVal3 = value.getProp() + 1 | 0;
+var propAbs3 = value.getAbs();
+console.log("propVal3", propVal3);
+console.log("propAbs3", propAbs3);
+console.log("setProp", value);
+var setProp$1 = setProp(value, 3);
+console.log("setProp", setProp$1);
+var propAbs = value.getAbs();
+console.log("propAbs", propAbs);
+console.log(value);
+console.log(propVal === 2);
+console.log("--------------------------");
+console.log("ABSOLUTE VALUE 3 END");
+console.log("--------------------------");
+function getAbs$1(x) {
+    return x.getAbs();
+}
+function setProp$2(x, n) {
+    return x.prop = n;
+}
+var AbsoluteValue2 = {
+    getAbs: getAbs$1,
+    setProp: setProp$2
+};
+function getAbs$2(x) {
+    return x.getAbs();
+}
+function setProp$3(x, n) {
+    return x.prop = n;
+}
+var AbsoluteValue$1 = {
+    getAbs: getAbs$2,
+    setProp: setProp$3
 };
 function useGetProp(x) {
     return x.getProp() + 1 | 0;
@@ -27,39 +76,53 @@ function useGetProp(x) {
 function useGetAbs(x) {
     return x.getAbs();
 }
-var useSetProp = setProp;
+function useSetProp(x, n) {
+    return x.prop = n;
+}
 var create = IndexGen.create;
-var value = create();
-console.log("new AbsoluteValue should be {}", value);
-console.log("new AbsoluteValue should have OBJECT type", Js_json.test(value, /* Object */ 2));
-var propVal = value.getProp() + 1 | 0;
-console.log("propVal: useGetProp(value)", propVal);
-var setVal = setProp(value, 1);
-console.log("setVal:", setVal);
-var setProp$1 = setProp(value, -3);
-console.log("setProp -3", setProp$1);
-var propVal$1 = value.getProp() + 1 | 0;
-var propAbs = value.getAbs();
-console.log("propVal", propVal$1);
-console.log("propAbs", propAbs);
-console.log("setProp", value);
-var setProp$2 = setProp(value, 3);
-console.log("setProp", value);
-var propAbs$1 = value.getAbs();
+var value$1 = create();
+console.log("new AbsoluteValue should be {}", value$1);
+console.log("new AbsoluteValue should have OBJECT type", Js_json.test(value$1, /* Object */ 2));
+var propVal$1 = value$1.getProp() + 1 | 0;
+console.log("propVal: useGetProp(value)", propVal$1);
+var setVal$1 = value$1.prop = 1;
+console.log("setVal:", setVal$1);
+var useUseProp = value$1.prop = -9;
+console.log("useUseProp -9", useUseProp);
+var useUseProp2$1 = value$1.prop = -19;
+console.log("useUseProp2 -19", useUseProp2$1);
+var useUseProp2$2 = value$1.prop = 19;
+console.log("useUseProp2 19", useUseProp2$2);
+var setProp$4 = value$1.prop = -3;
+console.log("setProp -3", setProp$4);
+var propVal$2 = value$1.getProp() + 1 | 0;
+var propAbs$1 = value$1.getAbs();
+console.log("propVal", propVal$2);
 console.log("propAbs", propAbs$1);
-console.log(value);
-console.log(propVal$1 === 2);
+console.log("setProp", value$1);
+var setProp$5 = value$1.prop = 3;
+console.log("setProp", value$1);
+var propAbs$2 = value$1.getAbs();
+console.log("propAbs", propAbs$2);
+console.log(value$1);
+console.log(propVal$2 === 2);
 var $$default = ImportJsValue$ReasonTsClassesGentype.$$default;
 exports.$$default = $$default;
 exports.default = $$default;
 exports.__esModule = true;
-exports.AbsoluteValue = AbsoluteValue;
+exports.AbsoluteValue3 = AbsoluteValue3;
+exports.propVal3 = propVal3;
+exports.propAbs3 = propAbs3;
+exports.AbsoluteValue2 = AbsoluteValue2;
+exports.AbsoluteValue = AbsoluteValue$1;
 exports.useGetProp = useGetProp;
 exports.useGetAbs = useGetAbs;
 exports.useSetProp = useSetProp;
 exports.create = create;
-exports.value = value;
-exports.setVal = setVal;
-exports.propVal = propVal$1;
-exports.setProp = setProp$2;
-exports.propAbs = propAbs$1;
+exports.value = value$1;
+exports.setVal = setVal$1;
+exports.useUseProp = useUseProp;
+exports.useUseProp2 = useUseProp2$2;
+exports.propVal = propVal$2;
+exports.setProp = setProp$5;
+exports.propAbs = propAbs$2;
