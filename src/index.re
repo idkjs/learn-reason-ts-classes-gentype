@@ -1,6 +1,21 @@
 let default = ImportJsValue.default;
 Js.log2("default: ", default);
 
+// example being bound
+
+// export class AbsoluteValue {
+//   public prop!: number;
+//   public getProp(): number {
+//     return this.prop;
+//   }
+//   public getAbs(): number {
+//     return this.prop < 0 ? -this.prop : this.prop;
+//   }
+// }
+// export const create = function() {
+//   return new AbsoluteValue();
+// };
+
 /* AbsoluteValue3, AbsoluteValue2 and AbsoluteValue do the same thing. Two different styles */
 module AbsoluteValue3 = {
   [@genType.import ("modules/absoluteValue", "AbsoluteValue")]
